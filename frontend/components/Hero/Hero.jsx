@@ -1,4 +1,7 @@
+"use client";
+
 import "./Hero.scss";
+import { motion } from "framer-motion";
 
 const stars = [
   { left: "5%", top: "12%", delay: "0.2s", duration: "0.4s", size: 1.5 },
@@ -64,6 +67,94 @@ const shootingStars = [
     duration: "14s",
   },
 ];
+
+/* =========================================================
+   FRAMER MOTION VARIANTS
+========================================================= */
+
+const contentContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 35,
+  },
+
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const phoneReveal = {
+  hidden: {
+    opacity: 0,
+    y: 80,
+    scale: 0.94,
+  },
+
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 1,
+      delay: 0.65,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const leftCardReveal = {
+  hidden: {
+    opacity: 0,
+    x: -70,
+    y: 20,
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      delay: 0.85,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const rightCardReveal = {
+  hidden: {
+    opacity: 0,
+    x: 70,
+    y: 20,
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      delay: 1,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
 export default function Hero() {
   return (
     <section className="hero">
@@ -107,21 +198,32 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Hero content */}
-      <div className="hero__content">
-        <p className="hero__eyebrow">YOUR MONEY. YOUR WAY.</p>
+      {/* =========================================================
+          HERO CONTENT
+      ========================================================= */}
 
-        <h1 className="hero__title">
+      <motion.div
+        className="hero__content"
+        variants={contentContainer}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.p className="hero__eyebrow" variants={fadeUp}>
+          YOUR MONEY. YOUR WAY.
+        </motion.p>
+
+        <motion.h1 className="hero__title" variants={fadeUp}>
           Think Money
           <br />
           Differently.
-        </h1>
+        </motion.h1>
 
-        <p className="hero__subtitle">
-        Track, understand, and grow your finances with tools built for the way people actually live — not the way banks want you to.
-        </p>
+        <motion.p className="hero__subtitle" variants={fadeUp}>
+          Track, understand, and grow your finances with tools built for the way
+          people actually live — not the way banks want you to.
+        </motion.p>
 
-        <div className="hero__buttons">
+        <motion.div className="hero__buttons" variants={fadeUp}>
           <a href="#get-started" className="hero__button hero__button--primary">
             Download App
           </a>
@@ -132,38 +234,101 @@ export default function Hero() {
           >
             Learn more
           </a>
-        </div>
+        </motion.div>
+      </motion.div>
+
+      {/* =========================================================
+          MOBILE + SIDE CARDS
+      ========================================================= */}
+
+      <div className="hero__phone">
+        {/* LEFT CARD */}
+
+        <motion.div
+          className="hero__side-card hero__side-card--left"
+          variants={leftCardReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{
+    duration: 0.25,
+    ease: "easeOut",
+  }}
+        >
+          <div className="rate">
+            <div className="hero__card-rating">
+              <span>5.0</span>
+              <span className="hero__card-star">★</span>
+            </div>
+
+            <span className="hero__card-label">TESTIMONIAL</span>
+          </div>
+
+          <h3>This Is the Future.</h3>
+
+          <p>
+            Switched to Hibo three months ago and haven't looked back. It just
+            understands what I actually need.
+          </p>
+
+          <div className="hero__card-user">
+            <img src="/avatar1.jpg" alt="" />
+            <span>Alex White.</span>
+          </div>
+        </motion.div>
+
+        {/* PHONE */}
+
+        <motion.div
+          className="hero__device"
+          variants={phoneReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.02 }}
+        >
+          <div className="hero__screen">
+            <video
+              className="hero__video"
+              src="/hero-mobile.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          </div>
+
+          <img
+            className="hero__mobile-frame"
+            src="/hero-mob.avif"
+            alt=""
+            aria-hidden="true"
+          />
+        </motion.div>
+
+        {/* RIGHT CARD */}
+
+        <motion.div
+          className="hero__side-card hero__side-card--right"
+          variants={rightCardReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <h3>Goal-Based Savings.</h3>
+
+          <p>
+            Empowering you to take charge of your financial future with
+            intuitive tools and personalized insights.
+          </p>
+
+          <div className="hero__card-bars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </motion.div>
       </div>
-
-     {/* =========================================================
-    MOBILE PHONE
-========================================================= */}
-
-<div className="hero__phone">
-  <div className="hero__device">
-
-    {/* Screen area */}
-    <div className="hero__screen">
-      <video
-        className="hero__video"
-        src="/hero-mobile.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-    </div>
-
-    {/* Phone outline */}
-    <img
-      className="hero__mobile-frame"
-      src="/hero-mob.avif"
-      alt=""
-      aria-hidden="true"
-    />
-
-  </div>
-</div>
     </section>
   );
 }

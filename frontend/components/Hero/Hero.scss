@@ -49,7 +49,7 @@
 
   border-radius: 50% 50% 0 0;
 
-  filter: blur(55px);
+  filter: blur(120px);
 
   transform: rotate(-2deg);
 
@@ -322,7 +322,7 @@
 
 .hero__buttons {
   margin-top: 28px;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 
   display: flex;
   align-items: center;
@@ -408,20 +408,214 @@
 
   backdrop-filter: blur(10px);
 }
+
+
+.hero__phone {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 /* =========================================================
-   PHONE DEVICE
+   CARD BASE
 ========================================================= */
+
+.hero__side-card {
+  position: absolute;
+
+  width: 280px;
+
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.10),
+    0 8px 20px rgba(0, 0, 0, 0.06);
+
+  z-index: 6;
+}
+
+
+/* =========================================================
+   LEFT CARD
+========================================================= */
+
+.hero__side-card--left {
+  left: calc(50% - 500px);
+
+  top: 40%;
+
+  transform: translateY(-50%);
+}
+
+
+/* =========================================================
+   RIGHT CARD
+========================================================= */
+
+.hero__side-card--right {
+  right: calc(50% - 500px);
+
+  top: 30%;
+
+  transform: translateY(-50%);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+.rate{
+  display: flex;
+  justify-content: space-between;
+}
+.hero__card-rating {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 20px;
+
+  font-size: 26px;
+  font-weight: 500;
+
+  color: #9aabb5;
+}
+
+.hero__card-star {
+  color: #e1bd35;
+
+  font-size: 24px;
+}
+
+
+.hero__card-label {
+  // display: block;
+
+  // margin-bottom: 22px;
+margin-top: 8px;
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  color: #aab9c1;
+}
+
+
+.hero__side-card h3 {
+  margin: 0 0 12px;
+
+  font-size: 18px;
+  line-height: 1.25;
+
+  font-weight: 500;
+
+  color: #263640;
+}
+
+
+.hero__side-card p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #78909c;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.hero__card-user {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 22px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #78909c;
+}
+
+.hero__card-user img {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   SAVINGS BARS
+========================================================= */
+
+.hero__card-bars {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 26px;
+}
+
+.hero__card-bars span {
+  display: block;
+
+  height: 46px;
+
+  border-radius: 14px;
+}
+
+.hero__card-bars span:nth-child(1) {
+  width: 105px;
+  background: #3d6feb;
+}
+
+.hero__card-bars span:nth-child(2) {
+  width: 60px;
+  background: #48b8eb;
+}
+
+.hero__card-bars span:nth-child(3) {
+  width: 45px;
+  background: #8295c4;
+}
+
+.hero__card-bars span:nth-child(4) {
+  width: 28px;
+  background: #ffad72;
+}
+
+
 
 .hero__device {
   position: relative;
-
   width: 350px;
 
   aspect-ratio: 648 / 1369;
 
   flex-shrink: 0;
    filter: drop-shadow(
-    0 30px 25px rgba(0, 0, 0, 0.22));
+    0 40px 30px rgba(0, 0, 0, 0.35))
 }
 
 
