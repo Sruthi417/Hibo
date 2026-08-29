@@ -5,7 +5,7 @@
 .reviews {
   width: 100%;
 
-  padding: 11rem 20px 140px;
+  padding: 8rem 20px 140px;
 
   background: #f7f7f7;
 
@@ -31,7 +31,7 @@
 
   justify-content: space-between;
 
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 }
 
 
@@ -54,7 +54,7 @@
   color: #071b28;
 
   font-family: "Manrope", sans-serif;
-
+max-width: 400px;
   font-size: clamp(48px, 5vw, 60px);
 
   line-height: 1.02;
@@ -71,7 +71,7 @@
   color: #71808a;
 
   font-family: "Manrope", sans-serif;
-
+max-width: 350px;
   font-size: 16px;
 
   line-height: 1.55;
@@ -240,7 +240,7 @@
 
   width: 100%;
 
-  aspect-ratio: 1 / 0.82;
+  aspect-ratio: 1 / 1.2;
 
   overflow: hidden;
 
@@ -249,6 +249,7 @@
   background: #e9eef0;
 
   isolation: isolate;
+  width: fit-content;
 }
 
 

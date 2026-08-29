@@ -1,9 +1,12 @@
+"use client";
+
+import { motion } from "framer-motion";
 import "./Review.scss";
 
 const reviews = {
   left: {
     image: {
-      src: "/review-maria.png",
+      src: "/rev3.avif",
       name: "Maria Lopez",
       location: "🇺🇸 Denver, US",
       rating: "4.5",
@@ -15,7 +18,7 @@ const reviews = {
 
   center: {
     image: {
-      src: "/review-taiwo.png",
+      src: "/rev2.avif",
       name: "Taiwo Aina",
       location: "🇳🇬 Ibadan, Nigeria",
       rating: "5.0",
@@ -27,7 +30,7 @@ const reviews = {
 
   right: {
     image: {
-      src: "/review-alex.png",
+      src: "/rev1.avif",
       name: "Alex Rivera",
       location: "🇬🇧 Birmingham, UK",
       rating: "4.0",
@@ -37,6 +40,39 @@ const reviews = {
     date: "24/02/2026",
   },
 };
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+const revealFromBottom = {
+  hidden: {
+    opacity: 0,
+    y: 60,
+  },
+
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+
+const staggerContainer = {
+  hidden: {},
+
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
 
 function ReviewImage({ image }) {
   return (
@@ -58,6 +94,7 @@ function ReviewImage({ image }) {
   );
 }
 
+
 function ReviewCard({ review }) {
   return (
     <article className="review-card">
@@ -65,7 +102,9 @@ function ReviewCard({ review }) {
         <span>„</span>
       </div>
 
-      <p className="review-card__text">{review.text}</p>
+      <p className="review-card__text">
+        {review.text}
+      </p>
 
       <div className="review-card__footer">
         <span className="review-card__author">
@@ -80,17 +119,31 @@ function ReviewCard({ review }) {
   );
 }
 
+
 export default function Review() {
   return (
     <section className="reviews">
       <div className="reviews__container">
 
-        {/* =========================
+        {/* =================================================
             HEADER
-        ========================= */}
-        <div className="reviews__header">
+        ================================================= */}
 
-          <div className="reviews__heading">
+        <motion.div
+          className="reviews__header"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+        >
+
+          <motion.div
+            className="reviews__heading"
+            variants={revealFromBottom}
+          >
             <h2>
               What People
               <br />
@@ -99,12 +152,15 @@ export default function Review() {
 
             <p>
               Thousands of people already use
-              <br />
               Hibo to take control of their finances.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="reviews__app">
+
+          <motion.div
+            className="reviews__app"
+            variants={revealFromBottom}
+          >
 
             <div className="reviews__rating">
               <strong>4.5</strong>
@@ -124,46 +180,80 @@ export default function Review() {
               <span>Get</span>
             </a>
 
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
 
-        {/* =========================
+        {/* =================================================
             REVIEWS
-        ========================= */}
-        <div className="reviews__columns">
+        ================================================= */}
 
-          {/* LEFT */}
-          <div className="reviews__column">
-            <ReviewImage image={reviews.left.image} />
+        <motion.div
+          className="reviews__columns"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.12,
+          }}
+        >
+
+          {/* =========================
+              LEFT COLUMN
+          ========================= */}
+
+          <motion.div
+            className="reviews__column"
+            variants={revealFromBottom}
+          >
+            <ReviewImage
+              image={reviews.left.image}
+            />
 
             <ReviewCard
               review={reviews.left}
             />
-          </div>
+          </motion.div>
 
 
-          {/* CENTER */}
-          <div className="reviews__column">
+          {/* =========================
+              CENTER COLUMN
+          ========================= */}
+
+          <motion.div
+            className="reviews__column"
+            variants={revealFromBottom}
+          >
             <ReviewCard
               review={reviews.center}
             />
 
-            <ReviewImage image={reviews.center.image} />
-          </div>
+            <ReviewImage
+              image={reviews.center.image}
+            />
+          </motion.div>
 
 
-          {/* RIGHT */}
-          <div className="reviews__column">
-            <ReviewImage image={reviews.right.image} />
+          {/* =========================
+              RIGHT COLUMN
+          ========================= */}
+
+          <motion.div
+            className="reviews__column"
+            variants={revealFromBottom}
+          >
+            <ReviewImage
+              image={reviews.right.image}
+            />
 
             <ReviewCard
               review={reviews.right}
             />
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>
