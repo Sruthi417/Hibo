@@ -121,7 +121,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="faq">
+    <section className="faq" id="contact">
       <div className="faq__container">
         <div className="faq__content">
           {/* =================================================
@@ -147,7 +147,7 @@ export default function FAQ() {
             </motion.div>
 
             {/* CONTACT CARD */}
-            <motion.div className="faq__contact" variants={revealFromBottom}>
+            <motion.div className="faq__contact" variants={revealFromBottom} >
               {/* LEFT */}
               <div className="faq__contact-left">
                 <div className="faq__contact-icon">

@@ -19,16 +19,16 @@ export default function Navbar() {
             Home
           </a>
 
-          <a href="#about" className="navbar__link">
-            About
+          <a href="#feature" className="navbar__link">
+            Feature
           </a>
 
-          <a href="#pricing" className="navbar__link">
-            Pricing
+          <a href="#process" className="navbar__link">
+            Process
           </a>
 
-          <a href="#blog" className="navbar__link">
-            Blog
+          <a href="#contact" className="navbar__link">
+            Contact
           </a>
         </div>
 

@@ -134,7 +134,7 @@ const imageVariants = {
 
 export default function Feature() {
   return (
-    <section className="features">
+    <section className="features" id="feature">
       <div className="features__container">
 
         {/* =========================

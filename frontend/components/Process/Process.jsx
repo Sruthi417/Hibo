@@ -71,7 +71,7 @@ export default function Process() {
   };
 
   return (
-    <section className="process">
+    <section className="process" id="process">
       <div className="process__container">
 
         {/* =========================
