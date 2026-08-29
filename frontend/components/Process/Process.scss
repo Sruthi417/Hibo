@@ -278,30 +278,38 @@
 
 
 
-@media (max-width: 1000px) {
+@media (max-width: 1130px) {
   .process {
     padding: 90px 20px 100px;
   }
+}
 
+
+/* =========================================================
+   900px – 1130px: side-by-side layout stays, but the image
+   wrapper scales proportionately with the column instead of
+   using a fixed pixel height
+========================================================= */
+
+@media (max-width: 1130px) and (min-width: 901px) {
   .process__content {
-    grid-template-columns: minmax(0, 1fr) minmax(400px, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 
     gap: 50px;
   }
 
   .process__visual {
-    height: 580px;
-  }
+    width: 100%;
+    height: auto;
 
-  .process__visual img {
-    width: 78%;
+    aspect-ratio: 500 / 550;
   }
 }
 
 
 
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .process {
     padding: 75px 20px 90px;
   }
@@ -314,6 +322,7 @@
     font-size: clamp(42px, 12vw, 56px);
   }
 
+  /* Image moves below the accordion */
   .process__content {
     display: flex;
 
@@ -353,16 +362,29 @@
     line-height: 1.6;
   }
 
+  /* Doesn't need to span the full width in this range —
+     kept to a fixed, reference-matched size and left aligned */
   .process__visual {
-    width: 100%;
+    width: 500px;
+    height: 450px;
 
-    height: 520px;
+    margin: 0;
 
     border-radius: 20px;
   }
+}
 
-  .process__visual img {
-    width: 75%;
+
+
+
+@media (max-width: 500px) {
+  /* Below 500px it goes full width, height scales with it
+     to keep the same proportions as the reference */
+  .process__visual {
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 340 / 290;
   }
 }
 
@@ -392,10 +414,6 @@
 
   .process__answer p {
     font-size: 14px;
-  }
-
-  .process__visual {
-    height: 450px;
   }
 }
 
