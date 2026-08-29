@@ -1,6 +1,7 @@
 import Hero from "../components/Hero/Hero"
 import Navbar from "../components/Nav/Navbar"
 import Brands from "../components/Brands/Brand"
+import Feature from "../components/Features/Feature"
 
 const page = () => {
   return (
@@ -8,6 +9,7 @@ const page = () => {
       <Navbar/>
       <Hero/>
       <Brands/>
+      <Feature/>
     </div>
   )
 }
