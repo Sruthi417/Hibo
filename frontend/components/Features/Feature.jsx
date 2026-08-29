@@ -64,7 +64,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.08,
     },
   },
 };
@@ -76,7 +76,7 @@ const cardVariants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.35,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -94,7 +94,7 @@ const textVariants = {
     y: 0,
     scaleY: 1,
     transition: {
-      duration: 0.55,
+      duration: 0.35,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -110,7 +110,7 @@ const imageVariants = {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.7,
+        duration: 0.45,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -125,7 +125,7 @@ const imageVariants = {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.7,
+        duration: 0.45,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -147,7 +147,7 @@ export default function Feature() {
           whileInView="visible"
           viewport={{
             once: true,
-            amount: 0.3,
+            amount: 0.15,
           }}
           variants={containerVariants}
         >
@@ -174,7 +174,7 @@ export default function Feature() {
           whileInView="visible"
           viewport={{
             once: true,
-            amount: 0.18,
+            amount: 0.1,
           }}
           variants={containerVariants}
         >

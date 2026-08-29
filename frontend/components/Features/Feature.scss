@@ -248,14 +248,22 @@ border-radius: 16px;
 
   .features__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    column-gap: 20px;
+    row-gap: 20px;
+
+    align-items: stretch;
   }
 
-  .feature-card {
+  .feature-card,
+  .feature-card--large,
+  .feature-card--tall,
+  .feature-card--small,
+  .feature-card--medium {
     min-height: 480px;
-  }
+    height: 100%;
 
-  .feature-card--tall {
-    min-height: 500px;
+    margin-top: 0;
   }
 }
 
@@ -298,12 +306,15 @@ border-radius: 16px;
   .feature-card,
   .feature-card--large,
   .feature-card--tall,
-  .feature-card--small {
+  .feature-card--small,
+  .feature-card--medium {
     min-height: 430px;
 
     padding: 28px 22px;
 
     border-radius: 18px;
+
+    margin-top: 0;
   }
 
   .feature-card__content h3 {
