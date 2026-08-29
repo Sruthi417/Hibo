@@ -225,6 +225,7 @@ export default function Hero() {
 
         <motion.div className="hero__buttons" variants={fadeUp}>
           <a href="#get-started" className="hero__button hero__button--primary">
+            
             Download App
           </a>
 
