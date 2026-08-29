@@ -4,6 +4,7 @@ import Brands from "../components/Brands/Brand"
 import Feature from "../components/Features/Feature"
 import Process from "../components/Process/Process"
 import Review from "../components/Review/Review"
+import FAQ from "../components/Faq/Faq"
 
 const page = () => {
   return (
@@ -14,6 +15,7 @@ const page = () => {
       <Feature/>
       <Process/>
       <Review/>
+      <FAQ/>
     </div>
   )
 }
