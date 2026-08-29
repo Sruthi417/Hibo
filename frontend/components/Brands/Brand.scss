@@ -1,0 +1,207 @@
+.brands {
+  width: 100%;
+  padding: 11rem 0rem 11rem;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.brands__container {
+  width: min(1080px, calc(100% - 40px));
+
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.brands__eyebrow {
+  margin: 0 0 42px;
+
+  color: #172d45;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.brands__marquee {
+  width: 100%;
+
+  overflow: hidden;
+
+  /*
+    Fade the logos slightly at the edges.
+    Remove this if you want sharp edges.
+  */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+
+.brands__track {
+  width: max-content;
+
+  display: flex;
+  align-items: center;
+
+  gap: 88px;
+
+  will-change: transform;
+
+  animation: brands-marquee 28s linear infinite;
+}
+
+
+/* =========================================================
+   LOGOS
+========================================================= */
+
+.brands__item {
+  width: 130px;
+  height: 50px;
+
+  flex: 0 0 130px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.brands__logo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  opacity: 0.7;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   INFINITE LOOP
+========================================================= */
+
+@keyframes brands-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    /*
+      Move exactly one set of logos.
+      Because the second set is identical,
+      the loop appears seamless.
+    */
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+
+/* =========================================================
+   HOVER PAUSE
+========================================================= */
+
+.brands__marquee:hover .brands__track {
+  animation-play-state: paused;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .brands {
+    padding: 70px 0;
+  }
+
+  .brands__track {
+    gap: 65px;
+
+    animation-duration: 25s;
+  }
+
+  .brands__item {
+    width: 115px;
+    flex-basis: 115px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .brands {
+    padding: 60px 0;
+  }
+
+  .brands__container {
+    width: calc(100% - 32px);
+  }
+
+  .brands__eyebrow {
+    margin-bottom: 30px;
+
+    font-size: 14px;
+  }
+
+  .brands__track {
+    gap: 50px;
+
+    animation-duration: 22s;
+  }
+
+  .brands__item {
+    width: 100px;
+    height: 42px;
+
+    flex-basis: 100px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .brands__track {
+    animation: none;
+  }
+}
