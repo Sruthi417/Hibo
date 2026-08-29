@@ -584,14 +584,42 @@
     padding-right: 16px;
   }
 
+  /* Stack the contact card into one column so the heading,
+     text and button no longer overlap */
   .faq__contact {
-    min-height: 280px;
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+    gap: 24px;
 
     padding: 26px 22px;
   }
 
-  .faq__contact-content h3 {
+  .faq__contact-left {
+    gap: 16px;
+  }
+
+  .faq__contact-left h3 {
     font-size: 29px;
+  }
+
+  .faq__contact-right {
+    align-items: flex-start;
+
+    justify-content: flex-start;
+
+    gap: 16px;
+
+    padding-top: 0;
+  }
+
+  .faq__contact-right p {
+    max-width: none;
+  }
+
+  .faq__contact-button {
+    width: 100%;
+    min-width: 0;
   }
 
   .faq__trigger {
