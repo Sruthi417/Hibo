@@ -3,7 +3,7 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 1330px;
+  min-height: 100vh;
 padding-bottom: 0rem;
   overflow: hidden;
 
@@ -22,7 +22,7 @@ padding-bottom: 0rem;
 
 .hero__background {
   position: absolute;
-  inset: 0;
+  inset: -1px -1px -2px -1px;
 
   z-index: -4;
 
@@ -58,7 +58,7 @@ padding-bottom: 0rem;
   content: "";
 
   position: absolute;
-  inset: 0;
+  inset: -1px -1px -2px -1px;
 
   z-index: 2;
 
@@ -291,8 +291,6 @@ padding-bottom: 0rem;
   padding-top: clamp(8rem, 18vw, 20rem);
   width: min(900px, calc(100% - 40px));
 
-  // margin-top: 145px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -338,7 +336,7 @@ padding-bottom: 0rem;
 
 .hero__buttons {
   margin-top: 28px;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
 
   display: flex;
   align-items: center;
@@ -434,6 +432,14 @@ padding-bottom: 0rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Side cards only appear on wide viewports; below that the
+   phone stays centered on its own */
+@media (max-width: 1042px) {
+  .hero__side-card {
+    display: none;
+  }
 }
 
 
@@ -701,20 +707,12 @@ margin-top: 8px;
 ========================================================= */
 
 @media (max-width: 900px) {
-  .hero {
-    min-height: 950px;
-  }
-
   .hero__content {
-    margin-top: 120px;
+    padding-top: 150px;
   }
 
   .hero__title {
     font-size: clamp(54px, 10vw, 82px);
-  }
-
-  .hero__phone {
-    margin-top: 70px;
   }
 }
 
@@ -724,8 +722,6 @@ margin-top: 8px;
 
 @media (max-width: 600px) {
   .hero {
-    min-height: 820px;
-
     background-position: center top;
   }
 
@@ -736,7 +732,7 @@ margin-top: 8px;
   .hero__content {
     width: calc(100% - 32px);
 
-    margin-top: 100px;
+    padding-top: 130px;
   }
 
   .hero__eyebrow {
@@ -775,10 +771,6 @@ margin-top: 8px;
     padding: 12px 17px;
 
     font-size: 12px;
-  }
-
-  .hero__phone {
-    margin-top: 55px;
   }
 
   .hero__device {
