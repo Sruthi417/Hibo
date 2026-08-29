@@ -295,6 +295,11 @@
   justify-content: center;
   align-items: flex-end;
 
+  /* Fill whatever vertical space is left in .footer__visual
+     so the phone always sits flush against the bottom edge,
+     no matter how tall the title/description end up being */
+  flex: 1;
+
   margin-top: 45px;
 
   /* Important: don't crop the image here */
@@ -756,6 +761,74 @@
   .footer__copyright-center,
   .footer__top {
     justify-self: center;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+.footer__visual {
+    height: 600px;
+}
+
+  .footer__phones {
+    width: 100%;
+
+    padding-inline: 20px;
+    box-sizing: border-box;
+
+    bottom: 0;
+  }
+
+  .footer__phone {
+    width: 100%;
+    max-width: 500px;
+
+    /* Fixed height so a narrow width doesn't shrink the
+       image too much — same object-fit as desktop keeps
+       the full phone visible */
+    height: 360px;
+
+    object-fit: contain;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  /* The title/description wrap to more lines on very narrow
+     screens, which was pushing the phone past the fixed
+     .footer__visual height and clipping it via overflow:
+     hidden — grow the container instead of letting the
+     phone appear to shrink */
+  .footer__visual {
+    height: 600px;
+  }
+
+  .footer__visual-content {
+    padding: 60px 16px 0;
+  }
+
+  .footer__visual-title {
+    font-size: 34px;
+
+    letter-spacing: -1px;
+  }
+
+  .footer__visual-description {
+    font-size: 14px;
+  }
+
+  .footer__phones {
+    margin-top: 30px;
+  }
+
+  /* Phone stays at the same fixed height as the 480px rule
+     instead of shrinking further */
+  .footer__phone {
+    height: 360px;
   }
 
 }
