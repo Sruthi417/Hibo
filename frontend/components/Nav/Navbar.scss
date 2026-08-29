@@ -143,6 +143,57 @@ border-radius: 10px;
 //   transform: translateY(-2px);
 }
 
+.navbar__download--mobile {
+  display: none;
+}
+
+/* =========================================================
+   HAMBURGER TOGGLE
+========================================================= */
+
+.navbar__toggle {
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  span {
+    display: block;
+
+    width: 22px;
+    height: 2px;
+
+    background: #001824;
+    border-radius: 2px;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+}
+
+/* =========================================================
+   MOBILE DROPDOWN MENU (separate floating panel, does not
+   affect navbar size or push page content)
+========================================================= */
+
+.navbar__menu {
+  display: none;
+}
+
 
 /* =========================================================
    TABLET
@@ -185,7 +236,7 @@ border-radius: 10px;
    MOBILE
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .navbar {
     padding: 14px 12px;
   }
@@ -195,24 +246,86 @@ border-radius: 10px;
 
     padding-inline: 18px 8px;
 
+    background: #fff;
+
     border-radius: 20px;
+
+    position: relative;
   }
 
   .navbar__logo img {
     width: 82px;
   }
 
-  .navbar__links {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  /* Desktop nav links + download hidden, hamburger shown instead */
+  .navbar__inner > .navbar__links,
+  .navbar__download--desktop {
     display: none;
   }
 
-  .navbar__download {
-    min-width: auto;
+  /* Floating dropdown panel, positioned below the navbar so it
+     never resizes/pushes the navbar or page content */
+  .navbar__menu {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 0;
+    right: 0;
 
-    padding: 12px 17px;
+    z-index: 20;
+
+    display: block;
+
+    padding-inline: 12px;
+
+    pointer-events: none;
+
+    opacity: 0;
+    transform: translateY(-8px);
+
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .navbar--open .navbar__menu {
+    pointer-events: auto;
+
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .navbar__menu-links {
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .navbar__link {
+    text-align: center;
+  }
+
+  .navbar__download--mobile {
+    display: flex;
+
+    min-width: auto;
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 16px 17px;
 
     border-radius: 16px;
 
-    font-size: 12px;
+    font-size: 15px;
   }
 }
